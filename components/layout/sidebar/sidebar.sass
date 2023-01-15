@@ -1,0 +1,21 @@
+.sidebar
+    width: 100%
+    display: flex
+    flex-shrink: 0
+    height: 100%
+    background-color: $grey
+    position: fixed
+    top: 0
+    left: -100%
+    transition: .3s
+    @include responsive_sm
+        width: 20rem
+    @include responsive_md
+        transition: 0
+        position: static
+        width: 18rem
+    @include responsive_l
+        width: 22rem
+
+.sidebar-active
+    left: 0
