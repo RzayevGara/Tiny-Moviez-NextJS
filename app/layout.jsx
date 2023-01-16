@@ -9,11 +9,11 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <body  className={lato.className}>
-        <Sidebar/>
-        <main>
-          <Header/>
-          {children}
-        </main>
+          <Sidebar/>
+          <main>
+            <Header/>
+              {children}
+          </main>
       </body>
     </html>
   )

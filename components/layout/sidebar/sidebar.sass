@@ -1,13 +1,32 @@
 .sidebar
-    width: 100%
-    display: flex
+    @include flex(column)
+    @include size(100%, 100%)
     flex-shrink: 0
-    height: 100%
     background-color: $grey
     position: fixed
-    top: 0
+    // top: 0
     left: -100%
     transition: .3s
+    padding: 2rem
+    .sidebar_header
+        @include flex(row, space-between)
+        .close-icon
+            @include responsive_md
+                display: none
+    .sidebar_list
+        margin-top: 5rem
+        .sidebar_list-title
+            @include font(1.125rem, 700)
+            opacity: .8
+        ul
+            margin-top: 1.5rem
+            padding-left: .5rem
+            @include flex(column)
+            gap: 1.125rem
+            li
+                @include flex(row, $align: center)
+                cursor: pointer
+                gap: 1rem
     @include responsive_sm
         width: 20rem
     @include responsive_md
