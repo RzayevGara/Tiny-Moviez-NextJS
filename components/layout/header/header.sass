@@ -1,12 +1,17 @@
 .header
     // background-color: green
     width: 100%
-    // height: 100px
-    padding: 2rem 3.5rem
-    @include flex(column)
+    height: 170px
+    padding: 0rem 3.5rem
+    @include flex(column, center)
+    position: sticky
+    top: 0
+    z-index: 10
     gap: 1.3rem
+    background-color: $blue
     @include responsive_sm
         @include flex(row, space-between, center)
+        height: 120px
     ul
         @include flex(row, space-between, center)
         gap: 1rem

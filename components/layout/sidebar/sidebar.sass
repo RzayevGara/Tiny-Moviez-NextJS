@@ -24,9 +24,15 @@
             @include flex(column)
             gap: 1.125rem
             li
-                @include flex(row, $align: center)
-                cursor: pointer
-                gap: 1rem
+                a
+                    @include flex(row, $align: center)
+                    cursor: pointer
+                    gap: 1rem
+                    color: white
+                .active-list
+                    color: $green
+                    font-weight: 700
+                    transition: .3s
     @include responsive_sm
         width: 20rem
     @include responsive_md

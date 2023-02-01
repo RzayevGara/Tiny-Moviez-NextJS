@@ -1,8 +1,11 @@
-import React from 'react'
+import TitleSwiper from '@/components/home/title-swiper/TitleSwiper'
 
 function page() {
   return (
-    <section className="main-content">page</section>
+    <section className="main-content">
+      <TitleSwiper/>
+
+    </section>
   )
 }
 
