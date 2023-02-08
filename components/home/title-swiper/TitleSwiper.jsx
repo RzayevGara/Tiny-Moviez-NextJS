@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getPopularList } from "@/app/api/moviesFetch";
+import { getCategoryList } from "@/app/api/moviesFetch";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -25,7 +25,7 @@ function TitleSwiper() {
   const {isLoading, error} = useQuery(["fetchMovies", searchParams.get("category")], () =>{
       let category = searchParams.get("category")
       if (category){
-        getPopularList(category, "top_rated", 1)
+        getCategoryList(category, "top_rated", 1)
         .then(res=>setPopular(res))
       }
   }
@@ -33,8 +33,6 @@ function TitleSwiper() {
   if (isLoading) return "Yükleniyor...";
 
   if (error) return "Hata meydana geldi: " + error.message
-
-  console.log(popular);
 
   return (
     <div className="title-swiper">
