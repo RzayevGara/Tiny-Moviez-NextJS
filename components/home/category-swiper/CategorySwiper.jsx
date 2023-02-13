@@ -2,9 +2,7 @@
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getCategoryList } from "@/app/api/moviesFetch";
 import React, {useState} from "react"
-import { useSearchParams } from "next/navigation";
 import Rating from '@mui/material/Rating';
 // Import Swiper styles
 import "swiper/css";
@@ -14,29 +12,10 @@ import './categorySwiper.sass'
 
 // import required modules
 import { Pagination } from "swiper";
-import {useQuery} from 'react-query'
 import Image from 'next/image';
 
 
-function CategorySwiper({genre, title}) {
-    const [data, setData] = useState([])
-    const searchParams = useSearchParams();
-  
-    const {isLoading, error} = useQuery(["fetchCategory", searchParams.get("category"), genre], () =>{
-        let category = searchParams.get("category")
-        console.log(category)
-        if (category){
-          getCategoryList(category, genre, 1)
-          .then(res=>setData(res))
-        }
-    }
-    )
-
-    console.log(data)
-    if (isLoading) return "Yükleniyor...";
-  
-    if (error) return "Hata meydana geldi: " + error.message
-
+function CategorySwiper({data, title}) {
   return (
     <div className='category-swiper'>
         <h2 className="category-swiper_title">{title}</h2>

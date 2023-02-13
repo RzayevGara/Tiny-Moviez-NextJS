@@ -1,14 +1,11 @@
-import TitleSwiper from '@/components/home/title-swiper/TitleSwiper'
-import CategorySwiper from '@/components/home/category-swiper/CategorySwiper'
+import Index from '@/modules/Home'
 
-function page() {
+function Page(context) {
   return (
-    <section className="main-content">
-      <TitleSwiper/>
-      <CategorySwiper genre="popular" title="Popular on TinyMoviez"/>
-      <CategorySwiper genre="top_rated" title="Top Rated on TinyMoviez"/>
-    </section>
+    <>
+      <Index context={context}/>
+    </>
   )
 }
 
-export default page
+export default Page

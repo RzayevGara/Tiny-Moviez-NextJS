@@ -1,10 +1,10 @@
-import React from 'react'
+import Index from '@/modules/Dynamic'
 
 function page({params}) {
 return (
-    <section className="main-content">
-      {params.category}
-      </section>
+    <>
+      <Index params={params}/>
+    </>
   )
 }
 
