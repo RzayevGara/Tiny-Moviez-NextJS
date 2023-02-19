@@ -18,6 +18,10 @@
         .sidebar_list-title
             @include font(1.125rem, 700)
             opacity: .8
+            @include responsive_md
+                font-size: 1.3rem
+            @include responsive_l
+                font-size: 1.5rem
         ul
             margin-top: 1.5rem
             padding-left: .5rem
@@ -29,6 +33,12 @@
                     cursor: pointer
                     gap: 1rem
                     color: white
+                    p
+                        font-size: .8rem
+                        @include responsive_md
+                            font-size: 1.1rem
+                        @include responsive_l
+                            font-size: 1.4rem
                 .active-list
                     color: $green
                     font-weight: 700
@@ -38,7 +48,7 @@
     @include responsive_md
         transition: 0
         position: static
-        width: 18rem
+        width: 15rem
     @include responsive_l
         width: 22rem
 

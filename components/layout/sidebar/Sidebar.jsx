@@ -4,11 +4,11 @@ import CloseIcon from '@/assets/images/svg/Close.svg'
 import Link from 'next/link'
 import SidebarItemList from './SidebarListItem'
 
-function page() {
+function Sidebar() {
   return (
     <div className="sidebar">
         <div className="sidebar_header">
-            <Link href="/">
+            <Link href="/?category=movie">
                 <Image src={Logo} alt="logo" priority/>
             </Link>
             <Image src={CloseIcon} alt="close-icon" priority className="close-icon"/>
@@ -18,4 +18,4 @@ function page() {
   )
 }
 
-export default page
+export default Sidebar

@@ -12,7 +12,7 @@ const fetchProductsforCategory = async (searchParams, genre) => {
   return data;
 };
 
-async function Index({context}) {
+async function Home({context}) {
   const searchParams = context.searchParams.category || "movie";
 
   const titleData = await fetchProductsforTitle(searchParams);
@@ -39,4 +39,4 @@ async function Index({context}) {
   );
 }
 
-export default Index;
+export default Home;

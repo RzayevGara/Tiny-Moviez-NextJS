@@ -1,9 +1,9 @@
-import Index from '@/modules/Home'
+import Home from '@/modules/Home/Home'
 
 function Page(context) {
   return (
     <>
-      <Index context={context}/>
+      <Home context={context}/>
     </>
   )
 }

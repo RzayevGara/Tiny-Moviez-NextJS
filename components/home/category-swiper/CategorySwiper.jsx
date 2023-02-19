@@ -40,7 +40,7 @@ function CategorySwiper({data, title}) {
             return (
               <SwiperSlide key={index}>
                 <div className="swiper-slider-container">
-                  <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority/>
+                  <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority loading="eager"/>
                   <div className="title-name">
                     <p >{item.title || item.name}</p>
                     <Rating name="read-only" defaultValue={5*(item.vote_average/10)} precision={0.1}  readOnly/>

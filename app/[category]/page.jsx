@@ -1,9 +1,9 @@
-import Index from '@/modules/Dynamic'
+import MoviesList from '@/modules/MoviesList/MoviesList'
 
-function page({params}) {
+function page(context) {
 return (
     <>
-      <Index params={params}/>
+      <MoviesList context={context}/>
     </>
   )
 }

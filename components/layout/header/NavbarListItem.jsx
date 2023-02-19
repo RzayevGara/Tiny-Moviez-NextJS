@@ -16,9 +16,14 @@ function NavbarListItem() {
 
   useEffect(()=>{
     if(!searchParams.get('category')){
-        const params = new URLSearchParams(searchParams)
+      const params = new URLSearchParams(searchParams)
+      if (pathname == "/"){
         params.set('category', "movie")
-        router.replace(`${pathname}?${params}`)
+      }else{
+        params.set('category', "movie")
+        params.set('page', 1)
+      }
+        router.push(`${pathname}?${params}`)
     }
   }, [pathname, router, searchParams])
 

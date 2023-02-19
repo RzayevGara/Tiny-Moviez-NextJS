@@ -21,7 +21,7 @@ function TitleSwiper({data}) {
             return (
               <SwiperSlide key={index}>
                 <div>
-                  <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority/>
+                  <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority loading="eager"/>
                   <p className="movie-title">{item.title || item.name}</p>
                 </div>
 
