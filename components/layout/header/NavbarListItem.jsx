@@ -23,7 +23,8 @@ function NavbarListItem() {
         params.set('category', "movie")
         params.set('page', 1)
       }
-        router.push(`${pathname}?${params}`)
+      router.push(`${pathname}?${params}`)
+        
     }
   }, [pathname, router, searchParams])
 

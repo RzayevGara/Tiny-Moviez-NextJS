@@ -6,7 +6,7 @@ function movies({data}){
         <div className="movies-list">
             <ul>
                 {
-                    data.map((item, index)=>(
+                    data?.map((item, index)=>(
                         <li key={index}>
                             <Link href="/">
                                 <Image src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} width="600"  height="900" alt="logo" loading="eager" priority={true}/>

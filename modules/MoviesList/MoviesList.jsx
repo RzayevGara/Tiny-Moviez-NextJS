@@ -5,13 +5,15 @@ import { notFound } from "next/navigation"
 
 const fetchMovies = async (searchParams, genre, page) => {
   try{
-    const genreNew = genre=="top-rated"?"top_rated":genre
-    const data = await getCategoryList(searchParams, genreNew, page);
-    return data;
+      const genreNew = genre=="top-rated"?"top_rated":genre
+      const data = await getCategoryList(searchParams, genreNew, page ? page : 1 );
+      const DATA_CONDITION = Boolean(!data)
+      if(DATA_CONDITION) return {notFound:DATA_CONDITION}
+      return data;
   }catch{
-    return {notFound: true}
+      return {notFound: true}
   }
-};
+}
 
 async function MoviesList({context}) {
     const searchParams = context.searchParams.category || "movie";
