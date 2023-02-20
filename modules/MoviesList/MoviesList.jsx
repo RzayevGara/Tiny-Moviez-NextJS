@@ -9,7 +9,7 @@ const fetchMovies = async (searchParams, genre, page) => {
     const data = await getCategoryList(searchParams, genreNew, page);
     return data;
   }catch{
-    return null
+    return {notFound: true}
   }
 };
 
@@ -28,7 +28,7 @@ async function MoviesList({context}) {
       page
       );
 
-      if (!moviesData) {
+      if (moviesData.notFound) {
         notFound()	
       }
 
