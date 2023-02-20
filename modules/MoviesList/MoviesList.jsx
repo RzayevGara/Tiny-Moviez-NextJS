@@ -1,12 +1,16 @@
 import Movies from '@/components/moviesList/movies/movies'
 import { getCategoryList } from "@/app/api/moviesFetch";
 import Pagination from '@/components/moviesList/pagination/Pagination'
-
+import { notFound } from "next/navigation"
 
 const fetchMovies = async (searchParams, genre, page) => {
-  const genreNew = genre=="top-rated"?"top_rated":genre
-  const data = await getCategoryList(searchParams, genreNew, page);
-  return data;
+  try{
+    const genreNew = genre=="top-rated"?"top_rated":genre
+    const data = await getCategoryList(searchParams, genreNew, page);
+    return data;
+  }catch{
+    return null
+  }
 };
 
 async function MoviesList({context}) {
@@ -24,7 +28,10 @@ async function MoviesList({context}) {
       page
       );
 
-      
+      if (!moviesData) {
+        notFound()	
+      }
+
   return (
     
     <section className="main-content movieList">

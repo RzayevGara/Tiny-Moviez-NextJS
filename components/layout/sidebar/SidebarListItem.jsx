@@ -42,14 +42,14 @@ function SidebarListItem() {
             </p>
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link href={`/discover?category=${category}&page=1`}>
             <Image src={DiscoverIcon} alt="icon" />
             <p className={pathname === "/discover" ? "active-list" : undefined}>
               Discover
             </p>
           </Link>
-        </li> */}
+        </li>
       </ul>
     </div>
   );
