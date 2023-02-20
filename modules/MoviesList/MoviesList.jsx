@@ -6,7 +6,7 @@ import { notFound } from "next/navigation"
 const fetchMovies = async (searchParams, genre, page) => {
       const genreNew = genre=="top-rated"?"top_rated":genre
       try{
-        const data = await getCategoryList(searchParams, genreNew, page ? page : 1 );
+        const data = await getCategoryList(searchParams, genreNew, page);
         return data;
       }catch{
         return null
