@@ -1,15 +1,16 @@
 import Movies from '@/components/moviesList/movies/movies'
 import { getCategoryList } from "@/app/api/moviesFetch";
 import Pagination from '@/components/moviesList/pagination/Pagination'
+import { notFound } from "next/navigation"
 
 const fetchMovies = async (searchParams, genre, page) => {
       const genreNew = genre=="top-rated"?"top_rated":genre
-      const data = await getCategoryList(searchParams, genreNew, page ? page : 1 );
-      if (!data) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data');
+      try{
+        const data = await getCategoryList(searchParams, genreNew, page ? page : 1 );
+        return data;
+      }catch{
+        return null
       }
-      return data;
 }
 
 async function MoviesList({context}) {
@@ -27,7 +28,9 @@ async function MoviesList({context}) {
       page
       );
 
-      console.log(moviesData)
+      if (!moviesData) {
+        notFound()	
+      }
 
   return (
     
