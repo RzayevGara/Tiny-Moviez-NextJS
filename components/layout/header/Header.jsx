@@ -4,11 +4,11 @@ import Image from 'next/image'
 import NavbarListItem from './NavbarListItem'
 
 
-function Header() {
+function Header({showMenu, burgerClick, setShowMenu}) {
   
   return (
     <section className="header">
-      <NavbarListItem/>
+      <NavbarListItem burgerClick={burgerClick} setShowMenu={setShowMenu} showMenu={showMenu}/>
       <form className="search-form">
         <div className="search-box">
           <Image src={SearchIcon} alt="search-icon"/>

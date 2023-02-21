@@ -1,5 +1,4 @@
 import React from "react";
-// import {usePathname,useSearchParams } from "next/navigation";
 import { useRouter } from 'next/router'
 import HomeIcon from '@/assets/images/svg/Home.svg'
 import TopRatedIcon from '@/assets/images/svg/Top Rated.svg'

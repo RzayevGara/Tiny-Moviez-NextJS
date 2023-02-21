@@ -1,5 +1,3 @@
-'use-client'
-
 import React from 'react'
 import ArrowIcon from '@/assets/images/svg/Left Arrow.svg'
 import Image from 'next/image';

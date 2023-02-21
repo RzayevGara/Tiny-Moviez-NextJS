@@ -4,14 +4,14 @@ import CloseIcon from '@/assets/images/svg/Close.svg'
 import Link from 'next/link'
 import SidebarItemList from './SidebarListItem'
 
-function Sidebar() {
+function Sidebar({showMenu, burgerClick}) {
   return (
-    <div className="sidebar">
+    <div className={showMenu ? 'sidebar sidebar-active' : 'sidebar'}>
         <div className="sidebar_header">
             <Link href="/?category=movie">
                 <Image src={Logo} alt="logo" priority/>
             </Link>
-            <Image src={CloseIcon} alt="close-icon" priority className="close-icon"/>
+            <Image src={CloseIcon} alt="close-icon" priority className="close-icon" onClick={burgerClick}/>
         </div>
         <SidebarItemList/>
     </div>

@@ -22,6 +22,5 @@ export async function getServerSideProps({query}) {
   }
   catch(error){
     return {notFound: true}
-    // return error
   }
 }
