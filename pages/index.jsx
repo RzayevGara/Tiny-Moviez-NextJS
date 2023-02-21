@@ -12,7 +12,7 @@ function Page({categoryDataTop, categoryDataPopular}) {
 export default Page
 
 export async function getServerSideProps({query}) {
-  const searchParams = query.category
+  const searchParams = query.category || 'movie'
   console.log(query)
   try{
     const categoryDataTop = await getCategoryList(searchParams, "top_rated", 1);
@@ -22,5 +22,6 @@ export async function getServerSideProps({query}) {
   }
   catch(error){
     return {notFound: true}
+    // return error
   }
 }

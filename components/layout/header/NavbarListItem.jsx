@@ -1,6 +1,3 @@
-"use client";
-
-// import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useRouter } from 'next/router'
 import React, {useEffect} from "react";
 
@@ -8,26 +5,13 @@ function NavbarListItem() {
   const router = useRouter();
   const searchParams = router.query
   const pathname = router.pathname
+  
 
   const NavbarMenuClick = (data) =>{
     const params = new URLSearchParams(searchParams)
     params.set('category', data)
     router.push(`${pathname}?${params}`)
   }
-
-  useEffect(()=>{
-    if(!searchParams.category){
-      const params = new URLSearchParams(searchParams)
-      if (pathname == "/"){
-        params.set('category', "movie")
-      }else{
-        params.set('category', "movie")
-        params.set('page', 1)
-      }
-      router.push(`${pathname}?${params}`)
-        
-    }
-  }, [pathname, router, searchParams])
 
   return (
     <ul>
