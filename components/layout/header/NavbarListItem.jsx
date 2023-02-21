@@ -1,21 +1,22 @@
 "use client";
 
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+// import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from 'next/router'
 import React, {useEffect} from "react";
 
 function NavbarListItem() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
+  const searchParams = router.query
+  const pathname = router.pathname
 
   const NavbarMenuClick = (data) =>{
     const params = new URLSearchParams(searchParams)
     params.set('category', data)
-    router.replace(`${pathname}?${params}`)
+    router.push(`${pathname}?${params}`)
   }
 
   useEffect(()=>{
-    if(!searchParams.get('category')){
+    if(!searchParams.category){
       const params = new URLSearchParams(searchParams)
       if (pathname == "/"){
         params.set('category', "movie")
@@ -30,17 +31,17 @@ function NavbarListItem() {
 
   return (
     <ul>
-      <li onClick={()=>NavbarMenuClick("movie")} className={searchParams.get('category')==='movie' ? "active-menu" : undefined}>
+      <li onClick={()=>NavbarMenuClick("movie")} className={searchParams.category==='movie' ? "active-menu" : undefined}>
         Movies
         {
-            searchParams.get('category')==='movie' &&
+            searchParams.category==='movie' &&
             <div className="border-list"></div>
         }
       </li>
-      <li onClick={()=>NavbarMenuClick("tv")} className={searchParams.get('category')==='tv' ? "active-menu" : undefined}>
+      <li onClick={()=>NavbarMenuClick("tv")} className={searchParams.category==='tv' ? "active-menu" : undefined}>
         TV Shows
         {
-            searchParams.get('category')==='tv' &&
+            searchParams.category==='tv' &&
             <div className="border-list"></div>
         }
         </li>

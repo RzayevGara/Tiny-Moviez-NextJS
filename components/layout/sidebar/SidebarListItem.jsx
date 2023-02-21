@@ -1,7 +1,6 @@
-'use client'
-
 import React from "react";
-import {usePathname,useSearchParams } from "next/navigation";
+// import {usePathname,useSearchParams } from "next/navigation";
+import { useRouter } from 'next/router'
 import HomeIcon from '@/assets/images/svg/Home.svg'
 import TopRatedIcon from '@/assets/images/svg/Top Rated.svg'
 import PopularIcon from '@/assets/images/svg/Popular.svg'
@@ -10,9 +9,12 @@ import Link from 'next/link'
 import Image from 'next/image';
 
 function SidebarListItem() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams()
-  const category = searchParams.get('category')
+  const router  = useRouter()
+  const pathname = router.asPath.split("?")[0]
+  const searchParams = router.query
+  const category = searchParams.category
+
+  console.log(pathname)
 
   return (
     <div className="sidebar_list">

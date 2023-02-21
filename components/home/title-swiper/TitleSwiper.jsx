@@ -1,10 +1,6 @@
-"use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-
-import "./titleSwiper.sass";
 
 // import required modules
 import { Pagination, Autoplay } from "swiper";
@@ -17,9 +13,9 @@ function TitleSwiper({data}) {
   return (
     <div className="title-swiper">
         <Swiper pagination={true} modules={[Pagination, Autoplay]} loop={true} autoplay={{delay: 5000}}>
-          {data?.results?.map((item, index) => {
+          {data?.results?.map((item) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={item.id}>
                 <div>
                   <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority loading="eager"/>
                   <p className="movie-title">{item.title || item.name}</p>

@@ -8,8 +8,6 @@ import Rating from '@mui/material/Rating';
 import "swiper/css";
 import "swiper/css/pagination";
 
-import './categorySwiper.sass'
-
 // import required modules
 import { Pagination } from "swiper";
 import Image from 'next/image';
@@ -36,9 +34,9 @@ function CategorySwiper({data, title}) {
               },
             }}
         >
-          {data?.results?.map((item, index) => {
+          {data?.results?.map((item) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={item.id}>
                 <div className="swiper-slider-container">
                   <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority loading="eager"/>
                   <div className="title-name">

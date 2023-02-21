@@ -8,7 +8,7 @@ function movies({data}){
                 {
                     data?.map((item, index)=>(
                         <li key={index}>
-                            <Link href="/">
+                            <Link href="/?category=movie">
                                 <Image src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} width="600"  height="900" alt="logo" loading="eager" priority={true}/>
                                 <h2>{item.title || item.name}</h2>
                             </Link>

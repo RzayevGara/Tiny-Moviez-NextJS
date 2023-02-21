@@ -1,15 +1,18 @@
-'use client'
-
 import Pagination from '@mui/material/Pagination'
 import {useState, useEffect} from 'react'
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from 'next/router'
+
 
 function PaginationComponent({page}) {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
+    const searchParams = router.query
+    const pathname = router.pathname
 
     const [pageData, setPageData] = useState(page)
+
+    useEffect(()=>{
+      setPageData(page)
+    }, [page])
 
     function handlePage(_, currentPage){
         const params = new URLSearchParams(searchParams)
