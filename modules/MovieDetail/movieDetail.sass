@@ -1,0 +1,74 @@
+.movie-detail
+    width: 100%
+    margin-top: 1rem
+    .movie-info
+        @include flex(column, space-between, center)
+        width: 100%
+        @include responsive_l
+            flex-direction: row
+            align-items: flex-start
+            gap: 5rem
+        .movie-poster
+            width: 100%
+            @include responsive_l
+                max-width: 400px
+                min-width: 300px
+            img
+                border-radius: 4px
+                width: 100%
+                height: 100%
+            .desktop-poster
+                display: none
+                @include responsive_l
+                    display: flex
+            .mobile-poster
+                @include responsive_l
+                    display: none
+        .movie-text
+            width: 100%
+            margin-top: 1.5rem
+            @include flex(column, $align: center)
+            gap: 0.5rem
+            @include responsive_l
+                align-items: flex-start
+                gap: 1rem
+                margin-top: 0
+            .MuiRating-iconFilled, 	.MuiRating-icon
+                color: #00B9AE
+            h2
+                @include font(2rem, $align: center)
+            .movie-tagname
+                @include font($align: center)
+            .movie-overview
+                p
+                    &:nth-child(1)
+                        font-size: 1.3rem
+                        margin-bottom: .5rem
+                    &:nth-child(2)
+                        text-align: center
+                        @include responsive_l
+                            text-align: left
+            .movie-cast
+                width: 100%
+                // height: 100%
+                margin-top: .4rem
+                p
+                    font-size: 1.3rem
+                    margin-bottom: .5rem    
+                ul
+                    overflow: auto
+                    @include flex(row)
+                    width: 100%
+                    gap: 2rem
+                    padding: .5rem
+                    li
+                        // width: 40% 
+                        @include flex(column)
+                        p
+                            width: 100%
+                            @include font(.8rem, $align: center)
+                            margin-top: .4rem
+                        img
+                            @include responsive_l
+                                width: 100%
+                                height: 100%

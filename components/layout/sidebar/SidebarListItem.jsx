@@ -7,26 +7,24 @@ import DiscoverIcon from '@/assets/images/svg/Discover.svg'
 import Link from 'next/link'
 import Image from 'next/image';
 
-function SidebarListItem() {
+function SidebarListItem({setShowMenu}) {
   const router  = useRouter()
   const pathname = router.asPath.split("?")[0]
   const searchParams = router.query
   const category = searchParams.category
-
-  console.log(pathname)
 
   return (
     <div className="sidebar_list">
       <p className="sidebar_list-title">Library</p>
       <ul>
         <li>
-          <Link href={`/?category=${category}`}>
+          <Link href={`/?category=${category?category:'movie'}`} onClick={()=>setShowMenu(false)}>
             <Image src={HomeIcon} alt="icon" />
             <p className={pathname === "/" ? "active-list" : undefined}>Home</p>
           </Link>
         </li>
         <li>
-          <Link href={`/top-rated?category=${category}&page=1`}>
+          <Link href={`/top-rated?category=${category?category:'movie'}&page=1`} onClick={()=>setShowMenu(false)}>
             <Image src={TopRatedIcon} alt="icon" />
             <p
               className={pathname === "/top-rated" ? "active-list" : undefined}
@@ -36,21 +34,21 @@ function SidebarListItem() {
           </Link>
         </li>
         <li>
-          <Link href={`/popular?category=${category}&page=1`}>
+          <Link href={`/popular?category=${category?category:'movie'}&page=1`} onClick={()=>setShowMenu(false)}>
             <Image src={PopularIcon} alt="icon" />
             <p className={pathname === "/popular" ? "active-list" : undefined}>
               Popular
             </p>
           </Link>
         </li>
-        <li>
-          <Link href={`/discover?category=${category}&page=1`}>
+        {/* <li>
+          <Link href={`/discover?category=${category?category:'movie'}&page=1`} onClick={()=>setShowMenu(false)}>
             <Image src={DiscoverIcon} alt="icon" />
             <p className={pathname === "/discover" ? "active-list" : undefined}>
               Discover
             </p>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

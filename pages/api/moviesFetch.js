@@ -8,3 +8,22 @@ export const getCategoryList = async (category, genre, page)=>{
     const res = await axios.get(url, { cache: 'no-store'})
     return res.data
 }
+
+
+export const getMovieDetail = async (category, id)=>{
+    let url = `https://api.themoviedb.org/3/${category}/${id}?api_key=${key}&language=en-US`
+    const res = await axios.get(url, { cache: 'no-store'})
+    return res.data
+}
+
+export const getMovieCredits = async (category, id)=>{
+    let url = `https://api.themoviedb.org/3/${category}/${id}/credits?api_key=${key}&language=en-US`
+    const res = await axios.get(url, { cache: 'no-store'})
+    return res.data
+}
+
+export const getMovieSimilar = async (category, id)=>{
+    let url = `https://api.themoviedb.org/3/${category}/${id}/similar?api_key=${key}&language=en-US`
+    const res = await axios.get(url, { cache: 'no-store'})
+    return res.data
+}

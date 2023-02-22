@@ -2,7 +2,7 @@ import Movies from '@/components/moviesList/movies/movies'
 import Pagination from '@/components/moviesList/pagination/Pagination'
 
 
-function MoviesList({data, pageParams, pageQuery}) {
+function MoviesList({data, pageParams, pageQuery, categoryQuery}) {
     const genre = pageParams
 
     const page = parseInt(pageQuery)
@@ -14,7 +14,7 @@ function MoviesList({data, pageParams, pageQuery}) {
     
     <section className="main-content movieList">
         <h2 className='movielist-title'>{str2}</h2>
-        <Movies data={data.results} />
+        <Movies data={data.results} categoryQuery={categoryQuery}/>
         <Pagination page={page}/>
     </section>
   );

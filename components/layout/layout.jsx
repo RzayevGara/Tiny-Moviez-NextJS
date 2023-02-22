@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
 }
   return (
     <>
-      <Sidebar showMenu={showMenu} burgerClick={burgerClick}/>
+      <Sidebar showMenu={showMenu} burgerClick={burgerClick} setShowMenu={setShowMenu}/>
       <main>
         <Header burgerClick={burgerClick} setShowMenu={setShowMenu} showMenu={showMenu}/>
         {children}

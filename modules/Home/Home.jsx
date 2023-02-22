@@ -6,8 +6,8 @@ function Home({categoryDataPopular, categoryDataTop}) {
   return (
     <section className="main-content">
       <TitleSwiper data={categoryDataTop}/>
-      <CategorySwiper data={categoryDataPopular} title="Popular on TinyMoviez" />
-      <CategorySwiper data={categoryDataTop} title="Top Rated on TinyMoviez" />
+      <CategorySwiper data={categoryDataPopular?.results} title="Popular on TinyMoviez" />
+      <CategorySwiper data={categoryDataTop?.results} title="Top Rated on TinyMoviez" />
     </section>
   );
 }

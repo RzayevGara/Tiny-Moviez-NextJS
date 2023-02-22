@@ -1,28 +1,15 @@
 import { useRouter } from 'next/router'
-// import React, {useState} from "react";
 
 function NavbarListItem({showMenu, burgerClick, setShowMenu}) {
   const router = useRouter();
   const searchParams = router.query
   const pathname = router.pathname
   
-  // const [showMenu, setShowMenu] = useState(false)
-
   const NavbarMenuClick = (data) =>{
     const params = new URLSearchParams(searchParams)
     params.set('category', data)
     router.push(`${pathname}?${params}`)
   }
-
-//   function burgerClick(){
-//     setShowMenu(!showMenu)
-//     // if(showMenu.value){
-//     //     document.getElementsByTagName('body')[0].classList.add('active-body')
-//     // }else{
-//     //     document.getElementsByTagName('body')[0].classList.remove('active-body')
-//     // }
-//     // showProfile.value = false
-// }
 
   return (
     <div className='navbar-list-item'>
@@ -31,6 +18,8 @@ function NavbarListItem({showMenu, burgerClick, setShowMenu}) {
         <li className="line"></li>
         <li className="line"></li>
       </ul>
+      {
+        pathname!=='/[movieCategory]/[movieID]' &&
       <ul className='navbar-menu'>
         <li onClick={()=>NavbarMenuClick("movie")} className={searchParams.category==='movie' ? "active-menu" : undefined}>
           Movies
@@ -47,6 +36,7 @@ function NavbarListItem({showMenu, burgerClick, setShowMenu}) {
           }
           </li>
       </ul>
+      }
     </div>
   );
 }
