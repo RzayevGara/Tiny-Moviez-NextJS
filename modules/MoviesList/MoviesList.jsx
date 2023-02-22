@@ -2,13 +2,11 @@ import Movies from '@/components/moviesList/movies/movies'
 import Pagination from '@/components/moviesList/pagination/Pagination'
 
 
-function MoviesList({data, pageParams, pageQuery, categoryQuery}) {
+function MoviesList({data, pageParams, pageQuery, categoryQuery, str2}) {
     const genre = pageParams
 
     const page = parseInt(pageQuery)
     
-    const str = genre.replace('_',' ')
-    const str2 = str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     

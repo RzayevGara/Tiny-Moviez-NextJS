@@ -1,10 +1,18 @@
 import MoviesList from '@/modules/MoviesList/MoviesList'
 import { getCategoryList } from "@/pages/api/moviesFetch";
+import Head from 'next/head'
 
 function Page({data, pageParams, pageQuery, categoryQuery}) {
+  const genre = pageParams
+  
+  const str = genre.replace('_',' ')
+  const str2 = str.charAt(0).toUpperCase() + str.slice(1);
 return (
     <>
-      <MoviesList data={data} pageParams={pageParams} pageQuery={pageQuery} categoryQuery={categoryQuery}/>
+      <Head>
+        <title>Tiny Moviez - {str2}</title>
+      </Head>
+      <MoviesList data={data} pageParams={pageParams} pageQuery={pageQuery} categoryQuery={categoryQuery} str2={str2}/>
     </>
   )
 }

@@ -1,9 +1,13 @@
 import Home from '@/modules/Home/Home'
 import { getCategoryList } from "@/pages/api/moviesFetch";
+import Head from 'next/head'
 
 function Page({categoryDataTop, categoryDataPopular}) {
   return (
     <>
+      <Head>
+        <title>Tiny Moviez</title>
+      </Head>
       <Home categoryDataTop={categoryDataTop} categoryDataPopular={categoryDataPopular}/>
     </>
   )

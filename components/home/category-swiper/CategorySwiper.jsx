@@ -15,7 +15,8 @@ import { useRouter } from 'next/router'
 
 function CategorySwiper({data, title}) {
   const router = useRouter();
-  const query = router.query.category
+  const query = router.query.category || router.query.movieCategory
+  console.log(query)
 
   return (
     <div className='category-swiper'>
@@ -39,7 +40,7 @@ function CategorySwiper({data, title}) {
         >
           {data?.map((item) => {
             return (
-              <SwiperSlide key={item.id} onClick={_=>router.push(`${query}/${item.id}`)}>
+              <SwiperSlide key={item.id} onClick={_=>router.push(`/${query}/${item.id}`)}>
                 <div className="swiper-slider-container">
                   <Image src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} width="2048" height="1152" alt="logo" priority loading="eager"/>
                   <div className="title-name">

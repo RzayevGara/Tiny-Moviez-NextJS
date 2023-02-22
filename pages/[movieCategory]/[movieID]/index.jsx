@@ -1,11 +1,16 @@
 import React from 'react'
 import { getMovieDetail, getMovieCredits, getMovieSimilar} from "@/pages/api/moviesFetch";
 import MovieDetail from '@/modules/MovieDetail/MovieDetail'
+import Head from 'next/head'
 
 function index({data, dataCredits, dataSimilar}) {
-  console.log(data, dataCredits)
   return (
-    <MovieDetail data={data} dataCredits={dataCredits} dataSimilar={dataSimilar}/>
+    <>
+      <Head>
+        <title>Tiny Moviez - {data.title || data.name}</title>
+      </Head>
+      <MovieDetail data={data} dataCredits={dataCredits} dataSimilar={dataSimilar}/>
+    </>
   )
 }
 
