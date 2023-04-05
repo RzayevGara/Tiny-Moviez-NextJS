@@ -9,4 +9,4 @@
 - Swiper JS
 ```
 
-# [Go To Live Demo](tiny-moviez-next-js.vercel.app)
+# [Go To Live Demo](https://tiny-moviez-next-js.vercel.app/?category=movie)
