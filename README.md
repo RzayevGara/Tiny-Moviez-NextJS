@@ -1,4 +1,12 @@
-# In Development
+<h1 align="center" style="margin-top: 0px;">TinyMoviez</h1>
 
-## Next JS 13
-## Project Name: TinyMoviez
+## Used in this Project:
+```
+- Next JS
+- MaterialUI
+- Axios
+- Sass
+- Swiper JS
+```
+
+# [Go To Live Demo](tiny-moviez-next-js.vercel.app)
